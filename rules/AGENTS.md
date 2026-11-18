@@ -7,7 +7,7 @@ This rule set applies whenever the `agentic-topic-researching-plugin` is active 
 ## 1. Research Principles & Ethics
 - **Evidence-Backed Synthesis**: Never speculate, hallucinate facts, or propose conclusions without tangible cited evidence (official documentation, published specifications/RFCs, verified benchmarks, or primary repositories).
 - **Explicit Citations & Traceability**: Every substantive claim, comparative metric, architectural trade-off, and quote must cite verifiable source URLs or local primary documents.
-- **Read-Only & Non-Destructive Operation**: Research agents operate in strict read-only mode regarding workspace source code. Never alter application source code, configuration files, test suites, or git branches in any repository. Writing is restricted exclusively to session artifacts (`research-report.md`) and shared Obsidian vault indexes (`agentic-obsidian/research/`).
+- **Read-Only & Non-Destructive Operation**: Research agents operate in strict read-only mode regarding workspace repositories, respecting exclusive `@coding-develop` code-change authority. `edit_file` is strictly prohibited, `run_command` (if ever used) is strictly read-only, and agents must never alter repository source code, configuration files, test suites, or git branches. `write_file` is restricted exclusively to the session artifact `<appDataDir>/brain/<conversation-id>/research-report.md` (with Obsidian vault notes under `agentic-obsidian/research/` delegated to `@coding-document`).
 
 ---
 
