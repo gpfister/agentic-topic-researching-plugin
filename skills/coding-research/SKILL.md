@@ -21,7 +21,7 @@ The `coding-research` subagent conducts in-depth technical investigations, web s
    - Inspects relevant local workspace architecture using `read_file` and `list_dir`.
 3. **Evidence-Backed Synthesis & Citations**:
    - Synthesizes findings with primary source citations and structured trade-off matrices.
-   - Strictly enforces read-only boundaries on workspace source code.
+   - Strictly enforces exclusive `@coding-develop` code-change authority: `edit_file` is prohibited, `run_command` (if ever used) is strictly read-only, and modifying repository source code, configuration files, or test suites is forbidden. `write_file` is restricted strictly to `<appDataDir>/brain/<conversation-id>/research-report.md` (Obsidian vault archival is delegated to `@coding-document`).
 4. **Research Report Artifact Approval Gate**:
    - **Dual-Mode Artifact Relay Protocol**:
      * **Subagent Mode (Artifact Approval Relay Protocol)**: When operating under a caller orchestrator, writes `research-report.md` directly to disk in the session artifact directory without requesting feedback. Relays approval to the caller orchestrator via `send_message` using the `[ARTIFACT_APPROVAL_REQUEST]` envelope and enters IDLE state awaiting `[ARTIFACT_APPROVAL_RESPONSE]` from the caller to eliminate the 60-second background execution timeout.
